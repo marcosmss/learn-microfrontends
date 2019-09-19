@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import './styles.css';
+import React, { Component } from "react";
+import "./styles.css";
 
 class Counter extends Component {
-
-  state = { count: this.props.initialCount || 0 }
+  state = { count: this.props.initialCount || 0 };
 
   updateCount = val => () => {
     const { onCountUpdate } = this.props;
-    this.setState(state => {
-      const nextCount = state.count + val;
-      return { count: nextCount }
-    },
+    this.setState(
+      state => {
+        const nextCount = state.count + val;
+        return { count: nextCount };
+      },
       () => onCountUpdate(this.state.count)
     );
-  }
+  };
 
   render() {
     const { count } = this.state;
@@ -33,7 +33,7 @@ class Counter extends Component {
 
 Counter.defaultProps = {
   title: "My Counter",
-  onCountUpdate: () => { }
+  onCountUpdate: () => {}
 };
 
 export default Counter;
